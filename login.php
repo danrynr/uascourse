@@ -11,8 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php       
         if (isset($_POST['login'])) {
-                $username = isset($_POST['username']);
-                $password = isset($_POST['password']);
+                $username = isset($_POST['username']) ? $_POST['username'] : '';
+                $password = isset($_POST['password']) ? $_POST['password'] : '';
 
             if (empty($username) || empty($password)) {
                 $msg = "<script>Swal.fire({
@@ -23,20 +23,22 @@
                     confirmButtonText: 'Oke'
                   });</script>";
             } else {
-                $queryCheck = "SELECT username, password FROM UserCre where username = '$username' AND password = '$hash'";
-                $data = mysqli_query($conn, $queryCheck);
-                $result = mysqli_fetch_assoc($data);
-                $result = password_verify($password, $result['password']);
-
-                if ($result != 0) {
+                include 'config.php';
+                $queryCheck = "SELECT pass_hash FROM UserCre where username = '$username'";
+                $data = mysqli_query($conn, $queryCheck) or die ('Error, query failed ' . mysqli_error($conn));
+                $output = mysqli_fetch_array($data);
+                
+                if (password_verify($password, $output['pass_hash'])) {
                     session_start();
+                    $queryGender = "SELECT gender FROM UserCre where username = '$username'";
+                    $dataGender = mysqli_query($conn, $queryGender) or die ('Error, query failed ' . mysqli_error($conn));
                     $_SESSION['username'] = $username;
-                    $_SESSION['gender'] = $json_data[$username]["gender"];
+                    $_SESSION['gender'] = $dataGender;
+                    mysqli_close($conn);
                     header("location:index.php");
-                    echo $gender;
                     exit;
-                    
                 } else {
+                    mysqli_close($conn);
                     $msg = "<script>Swal.fire({
                         title: 'Oops...',
                         text: 'Username atau Password salah!',
