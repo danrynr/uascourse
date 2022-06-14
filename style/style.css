@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: auto;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    margin-bottom: 24px;
+    background-color: #91a7ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container {
+    height: 12vh;
+    padding: 12px;
+}
+
+.container1 {
+    float: left;
+    height: 12vh;
+    padding: 12px;
+}
+
+.container2 {
+    float: right;
+    height: 12vh;
+    padding: 12px;
+}
+
+nav {
+    font-size: 24px;
+    width: 100%;
+    padding: 12px;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding-right: 12px;
+}
+
+.title {
+    float: left;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+ion-icon {
+    font-size: 24px;
+
+}
+
+.logout {
+    width: 16vh;
+    border: none;
+    background-color: #91a7ff;
+}
+
+.card {
+    border-radius: 6px;
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listcart {
+    width: 600px;
+}
+
+.shadow {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.warning {
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+}
+
+input {
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    height: 36px;
+    border: 2px solid #7048e8;
+    border-radius: 6px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    padding: 6px 8px;
+}
+
+input:focus, select:focus {
+    transition: .5s;
+    box-shadow: 0 0 6px #7048e8;
+}
+
+select {
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    height: 36px;
+    border: 2px solid #7048e8;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    padding: 6px 6px;
+    background-color: white;
+}
+
+.btn {
+    text-decoration: none;
+    color: blue;
+}
+
+button {
+    transition: .5s;
+    cursor: pointer;
+    float: right;
+    font-size: 18px;
+    width: 12vh;
+    height: 36px;
+    border-radius: 6px;
+    border: 2px solid #7048e8;
+}
+
+button:hover {
+    transition: .5s;
+    background-color: #7048e8;
+    color: white;
+}
+
+.cart {
+    width: 100%;
+}
+.order {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#right {
+    margin-left: 32px;
+}
+
+.container-b {
+    border-radius: 6px;
+    border: 2px solid #cfcfe9;
+    padding: 12px;
+}
+
+.course-section {
+    border-radius: 6px;
+    background-color: #cfcfe9;
+    margin-top: 4px;
+    padding: 12px;
+}
+
+.total-section {
+    border-radius: 6px;
+    background-color: #f4f7cd;
+    margin-top: 4px;
+    padding: 12px;
+}
+
+.discount-section {
+    border-radius: 6px;
+    background-color: #cfffe9;
+    margin-top: 4px;
+    padding: 12px;
+}
+
+.subtotal-section {
+    border-radius: 6px;
+    background-color: #f5d2c9;
+    margin-top: 4px;
+    padding: 12px;
+}
+
+
+.course {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nominal {
+    float: right;
+}

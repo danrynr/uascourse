@@ -1,0 +1,22 @@
+CREATE TABLE UserCre (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(45) NOT NULL,
+pass_hash VARCHAR(255) NOT NULL,
+name VARCHAR(100) NOT NULL,
+birthdate DATE NOT NULL,
+gender VARCHAR(1) NOT NULL,
+education VARCHAR(11) NOT NULL,
+address VARCHAR(100) NOT NULL,
+hobby VARCHAR(100) NOT NULL); 
+
+CREATE TABLE UserCart (
+username VARCHAR(45) NOT NULL,
+jumlah_ps INT NOT NULL,
+jumlah_vc INT NOT NULL,
+jumlah_net INT NOT NULL,
+jumlah_hp INT NOT NULL,
+diskon INT NOT NULL,
+diskon_tambahan INT NOT NULL,
+subtotal INT NOT NULL,
+total INT NOT NULL);
+
