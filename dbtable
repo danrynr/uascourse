@@ -20,3 +20,7 @@ diskon_tambahan INT NOT NULL,
 subtotal INT NOT NULL,
 total INT NOT NULL);
 
+CREATE TABLE Course (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(45) NOT NULL,
+price INT NOT NULL);
