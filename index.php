@@ -35,11 +35,19 @@
         <div class="container1">
             <h1>NIX Course</h1>
         </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="#">Beli</a></li>
+                    <li><a href="history.php">History</a></li>
+                </ul>
+            </nav>
+        </div>
         <div class="container2">
             <nav>
                 <ul>
                     <li><?php echo "Hello, <b>$username</b>"; ?></li>
-                    <li><a href="logout.php">Logout <ion-icon name="log-out-outline"></ion-icon></a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -78,7 +86,7 @@
                     <a class="course-name">Hardware + Peripheral</a>&nbsp;<span class="pertemuan"><?php echo " ($data_jumhp) Pertemuan";?></span>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $hp_text";?></span>
                     </section>
                     <section class="total-section">
-                    <a class="total-info">Total</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $total_text";?></span>
+                    <a class="total-info">Total</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $subtotal_text";?></span>
                     </section>
                     <section class="discount-section">
                     <a class="discount-info discount-one">Diskon Pembelian <?php echo $percent_diskon1_text;?></a>&nbsp;&nbsp;<span class="nominal"><?php echo "- Rp $diskon1_text";?></span>
@@ -87,7 +95,7 @@
                     <a class="discount-info discount-two">Diskon Tambahan <?php echo $percent_diskon2_text;?></a>&nbsp;&nbsp;<span class="nominal"><?php echo "- Rp $diskon2_text";?></span>
                     </section>
                     <section class="subtotal-section">
-                    <a class="subtotal-info">Total Pembayaran</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $subtotal_text";?></span>
+                    <a class="subtotal-info">Total Pembayaran</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $total_text";?></span>
                     </section>
                 </div>
 

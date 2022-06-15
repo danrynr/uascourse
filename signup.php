@@ -53,7 +53,7 @@
                         } else {
                             if ($username == $password) {
                                 $queryReg = "INSERT INTO UserCre (username, pass_hash, name, birthdate, gender, education, address, hobby) VALUES ('$username', '$hash', '$name', '$birthdate', '$gender', '$education', '$address', '$hobby')";
-                                $data1 = mysqli_query($conn, $queryReg) or die ('Error, query failed ' . mysqli_error($conn));
+                                mysqli_query($conn, $queryReg) or die ('Error, query failed ' . mysqli_error($conn));
                                 
                                 mysqli_close($conn);
                                 $msg = "<script>const Toast = Swal.mixin({
