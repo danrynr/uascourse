@@ -27,11 +27,12 @@
         if($jumhp <= 0) {
             $jumhp = 0;
         }
+
         include 'config.php';
-        $marketData = "SELECT name, price FROM Course";
+        $marketData = "SELECT price FROM Course";
         $marketResult = mysqli_query($conn, $marketData);
-        $marketRow = mysqli_fetch_assoc($marketResult);
-    
+        var_dump($marketResult);
+        
         //Kalkulasi jumlah item yang dibeli + diskon
         $ps1 = $ps * $jumps;
         $vc1 = $vc * $jumvc;
@@ -45,38 +46,42 @@
         $diskon1 = 0;
         $diskon2 = 0;
 
-        if($total > 2000000) {
-            $diskon1 = ($total * 10) / 100;
+        if($subtotal > 2000000) {
+            $diskon1 = ($subtotal * 10) / 100;
             $percent_diskon1 = "10%";
         } else if($pilkursus == 4) {
-            $diskon1 = ($total * 5) / 100;
+            $diskon1 = ($subtotal * 5) / 100;
             $percent_diskon1 = "5%";
         } else if($pilkursus == 3) {
-            $diskon1 = ($total * 2) / 100;
+            $diskon1 = ($subtotal * 2) / 100;
             $percent_diskon1 = "2%";
         }
 
         if($total > 0) {
             if($gender == "L") {
-                $diskon2 = ($total * 5) / 100;
+                $diskon2 = ($subtotal * 5) / 100;
                 $percent_diskon2 = "5%";
             } else {
-                $diskon2 = ($total * 3) / 100;
+                $diskon2 = ($subtotal * 3) / 100;
                 $percent_diskon2 = "3%";
             }
         }
 
-        $subtotal = $total - ($diskon1 + $diskon2);
+        $total = $subtotal - ($diskon1 + $diskon2);
 
         include 'config.php';
         $queryUserCart = "SELECT username FROM UserCart WHERE username = '$username'";
         $dataUserCart = mysqli_query($conn, $queryUserCart);
-        if ($dataUserCart != null) {
-            $queryUpdate = "UPDATE UserCart SET (jumlah_ps = '$jumps', jumlah_vc = '$jumvc', jumlah_net = '$jumnet', jumlah_hp = '$jumhp', diskon = '$diskon1', diskon_tambahan = '$diskon2', subtotal = '$subtotal', total = '$total') WHERE username = '$username'";
+        $dataUserCart = mysqli_fetch_assoc($dataUserCart);
+        if ($dataUserCart['username'] == $username) {
+            $queryUpdate = "UPDATE UserCart SET harga_ps = '$ps1', jumlah_ps = '$jumps', harga_vc = '$vc1', jumlah_vc = '$jumvc', harga_net = '$net1', jumlah_net = '$jumnet', harga_hp = '$hp1', jumlah_hp = '$jumhp', percent_diskon = '$percent_diskon1', diskon = '$diskon1', percent_diskon_tambahan =  '$percent_diskon2', diskon_tambahan = '$diskon2', subtotal = '$subtotal', total = '$total' WHERE username = '$username'";
             mysqli_query($conn, $queryUpdate) or die ('Error, query failed. ' . mysqli_error($conn));
+            echo "exist";
+            die;
         } else {
-            $queryUserCart = "INSERT INTO UserCart (username, jumlah_ps, jumlah_vc, jumlah_net, jumlah_hp, diskon, diskon_tambahan, subtotal, total) VALUES ('$username', '$jumps', '$jumvc', '$jumnet', '$jumhp', '$diskon1', '$diskon2', '$subtotal', '$total')";
+            $queryUserCart = "INSERT INTO UserCart (username, harga_ps, jumlah_ps, harga_vc, jumlah_vc, harga_net, jumlah_net, harga_hp, jumlah_hp, diskon, diskon_tambahan, subtotal, total) VALUES ('$username', '$ps1', '$jumps', '$vc1', '$jumvc', '$net1', '$jumnet', '$hp1', '$jumhp', '$diskon1', '$diskon2', '$subtotal', '$total')";
             mysqli_query($conn, $queryUser) or die ('Error, query failed. ' . mysqli_error($conn));
+            echo "new";
         }
         mysqli_close($conn);
         $msg = "<script>Swal.fire({
@@ -89,17 +94,37 @@
     }
 
     //AMBIL DATA
+    $queryPullUserCart = "SELECT harga_ps, jumlah_ps, harga_vc, jumlah_vc, harga_net, jumlah_net, harga_hp, jumlah_hp, diskon, diskon_tambahan, subtotal, total FROM UserCart WHERE username = '$username'";
+    $dataPullUserCart = mysqli_query($conn, $queryPullUserCart);
+    $dataPullUserCart = mysqli_fetch_assoc($dataPullUserCart);
 
+
+    $data_jumps = $dataPullUserCart['jumlah_ps'];
+    $data_jumvc = $dataPullUserCart['jumlah_vc'];
+    $data_jumnet = $dataPullUserCart['jumlah_net'];
+    $data_jumhp = $dataPullUserCart['jumlah_hp'];
+    $data_hargaps = $dataPullUserCart['harga_ps'];
+    $data_hargavc = $dataPullUserCart['harga_vc'];
+    $data_harganet = $dataPullUserCart['harga_net'];
+    $data_hargahp = $dataPullUserCart['harga_hp'];
+    $data_subtotal = $dataPullUserCart['subtotal'];
+    $data_diskon1 = $dataPullUserCart['diskon'];
+    $percent_diskon1_text = "$data_diskon1%";
+    $data_diskon2 = $dataPullUserCart['diskon_tambahan'];
+    $percent_diskon2_text = "$data_diskon2%";
+    $data_total = $dataPullUserCart['total'];
+
+    mysqli_close($conn);
 
     //NUMBER FORMATTING
-    $ps_text = number_format($ps1, 2, ',', '.');
-    $vc_text = number_format($vc1, 2, ',', '.');
-    $net_text = number_format($net1, 2, ',', '.');
-    $hp_text = number_format($hp1, 2, ',', '.');
-    $subtotal_text = number_format($data_total, 2, ',', '.');
+    $ps_text = number_format($data_hargaps, 2, ',', '.');
+    $vc_text = number_format($data_hargavc, 2, ',', '.');
+    $net_text = number_format($data_harganet, 2, ',', '.');
+    $hp_text = number_format($data_hargahp, 2, ',', '.');
+    $total_text = number_format($data_total, 2, ',', '.');
     $diskon1_text = number_format($data_diskon1, 2, ',', '.');
     $diskon2_text = number_format($data_diskon2, 2, ',', '.');
-    $total_text = number_format($data_subtotal, 2, ',', '.');
+    $subtotal_text = number_format($data_subtotal, 2, ',', '.');
     $ps_init = number_format($ps, 2, '.', ',');
     $vc_init = number_format($vc, 2, '.', ',');
     $net_init = number_format($net, 2, '.', ',');

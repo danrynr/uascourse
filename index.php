@@ -56,7 +56,7 @@
     <div class="shop">
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
             <?php echo $msg;?>
-            <div class="card shadow">
+            <div class="card shadow" id="left">
                 <h2>Pilih Kursus</h2>
                 <div class="course">
                     <p>PHP + MySQL (1x pertemuan <?php echo "Rp $ps_init";?>)</p><input type=number name="ps-q">
