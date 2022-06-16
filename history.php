@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
         $timeout = 300; //SESSION TIMEOUT 5 MINUTES
         ini_set("session.gc_maxlifetime", $timeout);
@@ -32,7 +33,7 @@
 
         // GET USERNAME'S HISTORY
 
-        $rowsPerPage = 6;
+        $rowsPerPage = 4;
         $pageNum = 1;
 
         if(isset($_GET['page'])) {
@@ -82,7 +83,13 @@
                     echo "Order-ID #" . $data['order_id'];
                     echo "</div>";
                     echo "<div class='mid-container'>";
-                    echo "Total Payment: Rp. " . number_format($data['total'], 2, ',', '.');
+                    echo "<div class='grup'>PHP + SQL x" . $data['quantity_ps'] . ": <div class='money'>Rp. " . number_format($data['price_ps'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Virtualization + Cloud x" . $data['quantity_vc'] . ": <div class='money'>Rp. " . number_format($data['price_vc'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Networking x" . $data['quantity_net'] . ": <div class='money'>Rp. " . number_format($data['price_net'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Hardware + Peripheral x" . $data['quantity_hp'] . ": <div class='money'>Rp. " . number_format($data['price_hp'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Diskon: <div class='money'>Rp. " . number_format($data['diskon'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Diskon+: <div class='money'>Rp. " . number_format($data['diskon_tambahan'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Total: <div class='money'>Rp. " . number_format($data['total'], 2, ",", ".") . "</div></div>";
                     echo "</div>";
                     echo "<div class='right-container>'";
                     echo "<a>purchased on " . $data['waktu_beli'] . "</a>";

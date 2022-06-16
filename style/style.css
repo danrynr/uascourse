@@ -109,7 +109,7 @@ a {
 
 .card-list:hover {
     transition: .2s;
-    background-color: #91a7ff;
+    border: 2px solid #91a7ff;
     cursor: pointer;
 }
 
@@ -128,6 +128,22 @@ a {
 .right-container {
     display: flex;
     flex-direction: column;
+    justify-content: right;
+}
+
+.grup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.curr {
+    display: flex;
+    justify-content: right;
+}
+
+.money {
+    display: flex;
     justify-content: right;
 }
 
