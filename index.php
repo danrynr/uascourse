@@ -10,7 +10,7 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-        $timeout = 300; //SESSION TIMEOUT 5 MENIT
+        $timeout = 300; //SESSION TIMEOUT 5 MINUTES
         ini_set("session.gc_maxlifetime", $timeout);
 
         $session_name = session_name();
@@ -29,17 +29,25 @@
         }
 
         include 'market.php';
+
+        $link = $_GET['link'];
+        if ($link == 'history') {
+            session_start();
+            $_SESSION['history'] = $username;
+            header('location: history.php');
+            exit;
+        }
     ?>
 
     <header class="shadow">
-        <div class="container1">
+        <div class="container">
             <h1>NIX Course</h1>
         </div>
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="#">Beli</a></li>
-                    <li><a href="history.php">History</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="?link=history">History</a></li>
                 </ul>
             </nav>
         </div>

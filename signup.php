@@ -13,6 +13,15 @@
             <div class="container">
                 <h1>NIX Course</h1>
             </div>
+
+            <div class="container2">
+                <nav>
+                    <ul>
+                        <li><a href="signup.php">Signup</a></li>
+                        <li><a href="login.php">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header class="shadow">
         <div class="card shadow">
             <?php

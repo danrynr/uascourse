@@ -6,15 +6,18 @@
 }
 
 html, body {
-    margin: auto;
+    width: 100%;
+    margin: 0;
     font-family: 'Rubik', sans-serif;
     align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 header {
+    width: 100%;
+    margin: 0;
     margin-bottom: 24px;
     background-color: #91a7ff;
     display: flex;
@@ -28,21 +31,20 @@ header {
 
 .container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-left: 20px;
 }
 
 .container1 {
-    display: flex;
     float: left;
 }
 
 .menu {
-    display: flex;
     justify-content: space-evenly;
 }
 
 .container2 {
-    display: flex;
     float: right;
 }
 
@@ -85,8 +87,63 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.card-l {
+    border-radius: 6px;
+    padding: 20px;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-list {
+    border-radius: 6px;
+    margin-bottom: 1vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-list:hover {
+    transition: .2s;
+    background-color: #91a7ff;
+    cursor: pointer;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.mid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pagination-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 6px;
+    padding: 12px;
+    margin-left: 1vh;
 }
 
 .listcart {

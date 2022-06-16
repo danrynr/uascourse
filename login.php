@@ -30,10 +30,7 @@
                 
                 if (password_verify($password, $output['pass_hash'])) {
                     session_start();
-                    $queryGender = "SELECT gender FROM UserCre where username = '$username'";
-                    $dataGender = mysqli_query($conn, $queryGender) or die ('Error, query failed ' . mysqli_error($conn));
                     $_SESSION['username'] = $username;
-                    $_SESSION['gender'] = $dataGender;
                     mysqli_close($conn);
                     header("location:index.php");
                     exit;
@@ -54,6 +51,15 @@
     <header class="shadow"> 
         <div class="container">
             <h1>NIX Course</h1>
+        </div>
+
+        <div class="container2">
+            <nav>
+                <ul>
+                    <li><a href="signup.php">Signup</a></li>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
