@@ -87,6 +87,7 @@
                     echo "<div class='grup'>Virtualization + Cloud x" . $data['quantity_vc'] . ": <div class='money'>Rp. " . number_format($data['price_vc'], 2, ",", ".") . "</div></div>";
                     echo "<div class='grup'>Networking x" . $data['quantity_net'] . ": <div class='money'>Rp. " . number_format($data['price_net'], 2, ",", ".") . "</div></div>";
                     echo "<div class='grup'>Hardware + Peripheral x" . $data['quantity_hp'] . ": <div class='money'>Rp. " . number_format($data['price_hp'], 2, ",", ".") . "</div></div>";
+                    echo "<div class='grup'>Subtotal: <div class='money'>Rp. " . number_format($data['subtotal'], 2, ",", ".") . "</div></div>";
                     echo "<div class='grup'>Diskon: <div class='money'>Rp. " . number_format($data['diskon'], 2, ",", ".") . "</div></div>";
                     echo "<div class='grup'>Diskon+: <div class='money'>Rp. " . number_format($data['diskon_tambahan'], 2, ",", ".") . "</div></div>";
                     echo "<div class='grup'>Total: <div class='money'>Rp. " . number_format($data['total'], 2, ",", ".") . "</div></div>";
