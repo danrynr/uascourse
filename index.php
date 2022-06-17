@@ -63,7 +63,7 @@
     
     <div class="shop">
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-            <?php echo $msg;?>
+            <?php if (isset($msg)) { echo $msg; };?>
             <div class="card shadow" id="left">
                 <h2>Pilih Kursus</h2>
                 <div class="course">
@@ -77,7 +77,7 @@
         </form>
 
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-            <?php echo $msg;?>
+            <?php if (isset($msg)) { echo $msg; };?>
             <div class="listcart card shadow" id="right">
                 <h2>Keranjang Pembelian</h2>
                 <div class="container-b">
