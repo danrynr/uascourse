@@ -68,10 +68,10 @@
     $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM usercart WHERE username = '$username'";
     $dataPullUserCart = mysqli_query($conn, $queryPullUserCart);
     $dataPullUserCart = mysqli_fetch_assoc($dataPullUserCart);
-    $jumps = isset($dataPullUserCart['quantity_ps']) ? $dataPullUserCart['quantity_ps'] : 0;
-    $jumvc = isset($dataPullUserCart['quantity_vc']) ? $dataPullUserCart['quantity_vc'] : 0;
-    $jumnet = isset($dataPullUserCart['quantity_net']) ? $dataPullUserCart['quantity_net'] : 0;
-    $jumhp = isset($dataPullUserCart['quantity_hp']) ? $dataPullUserCart['quantity_hp'] : 0;
+    $jumps = isset($dataPullUserCart['quantity_ps']);
+    $jumvc = isset($dataPullUserCart['quantity_vc']);
+    $jumnet = isset($dataPullUserCart['quantity_net']);
+    $jumhp = isset($dataPullUserCart['quantity_hp']);
    
     // MULTIPLY PRICE WITH QUANTITY
     $ps1 = $ps * $jumps;
@@ -117,10 +117,10 @@
     $total = $subtotal - ($diskon1 + $diskon2);
 
     //AMBIL DATA
-    $data_jumps = isset($dataPullUserCart['quantity_ps']) ? $dataPullUserCart['quantity_ps'] : 0;
-    $data_jumvc = isset($dataPullUserCart['quantity_vc']) ? $dataPullUserCart['quantity_vc'] : 0;
-    $data_jumnet = isset($dataPullUserCart['quantity_net']) ? $dataPullUserCart['quantity_net'] : 0;
-    $data_jumhp = isset($dataPullUserCart['quantity_hp']) ? $dataPullUserCart['quantity_hp'] : 0;  
+    $data_jumps = isset($dataPullUserCart['quantity_ps']);
+    $data_jumvc = isset($dataPullUserCart['quantity_vc']);
+    $data_jumnet = isset($dataPullUserCart['quantity_net']);
+    $data_jumhp = isset($dataPullUserCart['quantity_hp']);  
     $data_hargaps = $ps1;
     $data_hargavc = $vc1;
     $data_harganet = $net1;

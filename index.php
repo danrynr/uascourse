@@ -30,7 +30,7 @@
 
         include 'market.php';
 
-        $link = $_GET['link'];
+        $link = isset($_GET['link']);
         if ($link == 'history') {
             session_start();
             $_SESSION['history'] = $username;
