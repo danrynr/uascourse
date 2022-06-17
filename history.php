@@ -43,7 +43,7 @@
         $offset = ($pageNum - 1) * $rowsPerPage;
 
         include 'config.php';
-        $queryHistory = "SELECT * FROM UserHistory WHERE username = '$username' ORDER BY waktu_beli DESC LIMIT $offset, $rowsPerPage";
+        $queryHistory = "SELECT * FROM userhistory WHERE username = '$username' ORDER BY waktu_beli DESC LIMIT $offset, $rowsPerPage";
         $dataHistory = mysqli_query($conn, $queryHistory);
         
 
@@ -99,7 +99,7 @@
                     $no++;
                 }
 
-                $dataHistoryAll = "SELECT * FROM UserHistory WHERE username = '$username'";
+                $dataHistoryAll = "SELECT * FROM userhistory WHERE username = '$username'";
                 $dataHistoryAll = mysqli_query($conn, $dataHistoryAll);
                 $row = mysqli_fetch_assoc($dataHistoryAll);
                 $total_rows = mysqli_num_rows($dataHistoryAll);

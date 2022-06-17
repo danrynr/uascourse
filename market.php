@@ -28,7 +28,7 @@
 
         // STORE ITEM QUANTITY TO CART
         include 'config.php';
-        $queryUserCart = "SELECT username FROM UserCart WHERE username = '$username'";
+        $queryUserCart = "SELECT username FROM usercart WHERE username = '$username'";
         $dataUserCart = mysqli_query($conn, $queryUserCart);
         $dataUserCart = mysqli_fetch_assoc($dataUserCart);
         if ($dataUserCart['username'] == $username) {
@@ -51,10 +51,10 @@
 
     //GET COURSE PRICE
     include 'config.php';
-    $marketDataPS = "SELECT price FROM Course WHERE name = 'phpsql'";
-    $marketDataVC = "SELECT price FROM Course WHERE name = 'virtcloud'";
-    $marketDataNET = "SELECT price FROM Course WHERE name = 'network'";
-    $marketDataHP = "SELECT price FROM Course WHERE name = 'hardperi'";
+    $marketDataPS = "SELECT price FROM course WHERE name = 'phpsql'";
+    $marketDataVC = "SELECT price FROM course WHERE name = 'virtcloud'";
+    $marketDataNET = "SELECT price FROM course WHERE name = 'network'";
+    $marketDataHP = "SELECT price FROM course WHERE name = 'hardperi'";
     $ps = mysqli_fetch_assoc(mysqli_query($conn, $marketDataPS));
     $ps = $ps['price'];
     $vc = mysqli_fetch_assoc(mysqli_query($conn, $marketDataVC));
@@ -65,7 +65,7 @@
     $hp = $hp['price'];
 
     // GET ITEM QUANTITY
-    $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM UserCart WHERE username = '$username'";
+    $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM usercart WHERE username = '$username'";
     $dataPullUserCart = mysqli_query($conn, $queryPullUserCart);
     $dataPullUserCart = mysqli_fetch_assoc($dataPullUserCart);
     $jumps = $dataPullUserCart['quantity_ps'];
@@ -98,7 +98,7 @@
     }
 
     // DISCOUNT 2
-    $queryGender = "SELECT gender FROM UserCre WHERE username = '$username'";
+    $queryGender = "SELECT gender FROM usercre WHERE username = '$username'";
     $dataGender = mysqli_query($conn, $queryGender);
     $gender = mysqli_fetch_assoc($dataGender);
 
@@ -151,8 +151,8 @@
     //PAY AND CLEAR CART
     if (isset($_POST['order']) && $data_total != 0) {
         include 'config.php';
-        $queryPurchase = "INSERT INTO UserHistory (username, price_ps, quantity_ps, price_vc, quantity_vc, price_net, quantity_net, price_hp, quantity_hp, diskon, diskon_tambahan, subtotal, total, waktu_beli) VALUES ('$username', '$data_hargaps', '$data_jumps', '$data_hargavc', '$data_jumvc', '$data_harganet', '$data_jumnet', '$data_hargahp', '$data_jumhp', '$data_diskon1', '$data_diskon2', '$data_subtotal', '$data_total', NOW())";
-        $queryClearCart = "DELETE FROM UserCart WHERE username = '$username'";
+        $queryPurchase = "INSERT INTO userhistory (username, price_ps, quantity_ps, price_vc, quantity_vc, price_net, quantity_net, price_hp, quantity_hp, diskon, diskon_tambahan, subtotal, total, waktu_beli) VALUES ('$username', '$data_hargaps', '$data_jumps', '$data_hargavc', '$data_jumvc', '$data_harganet', '$data_jumnet', '$data_hargahp', '$data_jumhp', '$data_diskon1', '$data_diskon2', '$data_subtotal', '$data_total', NOW())";
+        $queryClearCart = "DELETE FROM usercart WHERE username = '$username'";
         
         mysqli_query($conn, $queryPurchase);
         mysqli_query($conn, $queryClearCart);

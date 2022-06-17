@@ -47,7 +47,7 @@
                     } else {
                         include 'config.php';
 
-                        $query = "SELECT username FROM UserCre WHERE username = '$username'";
+                        $query = "SELECT username FROM usercre WHERE username = '$username'";
                         $data = mysqli_query($conn, $query) or die ('Error, query failed username '. mysqli_error($conn));
                         $result = mysqli_fetch_array($data);
                         
@@ -61,7 +61,7 @@
                               });</script>";
                         } else {
                             if ($username == $password) {
-                                $queryReg = "INSERT INTO UserCre (username, pass_hash, name, birthdate, gender, education, address, hobby) VALUES ('$username', '$hash', '$name', '$birthdate', '$gender', '$education', '$address', '$hobby')";
+                                $queryReg = "INSERT INTO usercre (username, pass_hash, name, birthdate, gender, education, address, hobby) VALUES ('$username', '$hash', '$name', '$birthdate', '$gender', '$education', '$address', '$hobby')";
                                 mysqli_query($conn, $queryReg) or die ('Error, query failed ' . mysqli_error($conn));
                                 
                                 mysqli_close($conn);

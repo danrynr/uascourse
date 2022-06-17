@@ -24,7 +24,7 @@
                   });</script>";
             } else {
                 include 'config.php';
-                $queryCheck = "SELECT pass_hash FROM UserCre where username = '$username'";
+                $queryCheck = "SELECT pass_hash FROM usercre where username = '$username'";
                 $data = mysqli_query($conn, $queryCheck) or die ('Error, query failed ' . mysqli_error($conn));
                 $output = mysqli_fetch_array($data);
                 
