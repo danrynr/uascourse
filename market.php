@@ -32,10 +32,10 @@
         $dataUserCart = mysqli_query($conn, $queryUserCart);
         $dataUserCart = mysqli_fetch_assoc($dataUserCart);
         if ($dataUserCart['username'] == $username) {
-            $queryUpdate = "UPDATE UserCart SET quantity_ps = '$jumps', quantity_vc = '$jumvc', quantity_net = '$jumnet', quantity_hp = '$jumhp' WHERE username = '$username'";
+            $queryUpdate = "UPDATE usercart SET quantity_ps = '$jumps', quantity_vc = '$jumvc', quantity_net = '$jumnet', quantity_hp = '$jumhp' WHERE username = '$username'";
             mysqli_query($conn, $queryUpdate) or die ('Error, query failed1. ' . mysqli_error($conn));
         } else {
-            $queryUserCart = "INSERT INTO UserCart (username, quantity_ps, quantity_vc, quantity_net, quantity_hp) VALUES ('$username', '$jumps', '$jumvc',  '$jumnet', '$jumhp')";
+            $queryUserCart = "INSERT INTO usercart (username, quantity_ps, quantity_vc, quantity_net, quantity_hp) VALUES ('$username', '$jumps', '$jumvc',  '$jumnet', '$jumhp')";
             mysqli_query($conn, $queryUserCart) or die ('Error, query failed2. ' . mysqli_error($conn));
         }
         mysqli_close($conn);
