@@ -117,10 +117,10 @@
     $total = $subtotal - ($diskon1 + $diskon2);
 
     //AMBIL DATA
-    $data_jumps = $dataPullUserCart['quantity_ps'] ? $dataPullUserCart['quantity_ps'] : 0;
-    $data_jumvc = $dataPullUserCart['quantity_vc'] ? $dataPullUserCart['quantity_vc'] : 0;
-    $data_jumnet = $dataPullUserCart['quantity_net'] ? $dataPullUserCart['quantity_net'] : 0;
-    $data_jumhp = $dataPullUserCart['quantity_hp'] ? $dataPullUserCart['quantity_hp'] : 0;  
+    $data_jumps = isset($dataPullUserCart['quantity_ps']) ? $dataPullUserCart['quantity_ps'] : 0;
+    $data_jumvc = isset($dataPullUserCart['quantity_vc']) ? $dataPullUserCart['quantity_vc'] : 0;
+    $data_jumnet = isset($dataPullUserCart['quantity_net']) ? $dataPullUserCart['quantity_net'] : 0;
+    $data_jumhp = isset($dataPullUserCart['quantity_hp']) ? $dataPullUserCart['quantity_hp'] : 0;  
     $data_hargaps = $ps1;
     $data_hargavc = $vc1;
     $data_harganet = $net1;
