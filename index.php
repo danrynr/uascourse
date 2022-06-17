@@ -27,7 +27,7 @@
         if(isset($_COOKIE[$session_name])) {
             setcookie($session_name, $_COOKIE[$session_name], time() + $timeout, '/');
         }
-
+        $msg = '';
         include 'market.php';
 
         $link = isset($_GET['link']);
