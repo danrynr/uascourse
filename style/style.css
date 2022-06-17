@@ -121,7 +121,9 @@ a {
 }
 
 .mid-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 56vh;
     flex-direction: column;
     justify-content: center;
 }
@@ -146,6 +148,12 @@ a {
 .money {
     display: flex;
     justify-content: right;
+}
+
+.headlabel {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
 }
 
 .pagination {
