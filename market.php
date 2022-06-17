@@ -68,10 +68,10 @@
     $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM usercart WHERE username = '$username'";
     $dataPullUserCart = mysqli_query($conn, $queryPullUserCart);
     $dataPullUserCart = mysqli_fetch_assoc($dataPullUserCart);
-    $jumps = $dataPullUserCart['quantity_ps'];
-    $jumvc = $dataPullUserCart['quantity_vc'];
-    $jumnet = $dataPullUserCart['quantity_net'];
-    $jumhp = $dataPullUserCart['quantity_hp'];
+    $jumps = isset($dataPullUserCart['quantity_ps']) ? $dataPullUserCart['quantity_ps'] : 0;
+    $jumvc = isset($dataPullUserCart['quantity_vc']) ? $dataPullUserCart['quantity_vc'] : 0;
+    $jumnet = isset($dataPullUserCart['quantity_net']) ? $dataPullUserCart['quantity_net'] : 0;
+    $jumhp = isset($dataPullUserCart['quantity_hp']) ? $dataPullUserCart['quantity_hp'] : 0;
    
     // MULTIPLY PRICE WITH QUANTITY
     $ps1 = $ps * $jumps;
@@ -131,8 +131,6 @@
     $data_diskon2 = $diskon2;
     $percent_diskon2_text = $percent_diskon2;
     $data_total = $total;
-
-    mysqli_close($conn);
 
     //NUMBER FORMATTING
     $ps_text = number_format($data_hargaps, 2, ',', '.');
