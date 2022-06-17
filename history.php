@@ -117,7 +117,6 @@
                     echo "<div class='item'>Rp.&nbsp;&nbsp;</div>";
                     echo "<div class='item money'>" . number_format($data['total'], 2, '.', ',') . "</div>";
                     echo "</div>";
-                    
                     echo "<div class='right-container>'";
                     echo "<a>purchased on " . $data['waktu_beli'] . "</a>";
                     echo "</div>";
