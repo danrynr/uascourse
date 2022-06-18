@@ -56,13 +56,13 @@
     $marketDataNET = "SELECT price FROM course WHERE name = 'network'";
     $marketDataHP = "SELECT price FROM course WHERE name = 'hardperi'";
     $ps = mysqli_fetch_assoc(mysqli_query($conn, $marketDataPS));
-    $ps = $ps['price'];
+    $ps = isset($ps['price']);
     $vc = mysqli_fetch_assoc(mysqli_query($conn, $marketDataVC));
-    $vc = $vc['price'];
+    $vc = isset($vc['price']);
     $net = mysqli_fetch_assoc(mysqli_query($conn, $marketDataNET));
-    $net = $net['price'];
+    $net = isset($net['price']);
     $hp = mysqli_fetch_assoc(mysqli_query($conn, $marketDataHP));
-    $hp = $hp['price'];
+    $hp = isset($hp['price']);
 
     // GET ITEM QUANTITY
     $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM usercart WHERE username = '$username'";
