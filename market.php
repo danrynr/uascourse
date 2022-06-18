@@ -56,13 +56,13 @@
     $marketDataNET = "SELECT price FROM course WHERE name = 'network'";
     $marketDataHP = "SELECT price FROM course WHERE name = 'hardperi'";
     $ps = mysqli_fetch_assoc(mysqli_query($conn, $marketDataPS));
-    $ps = isset($ps['price']);
+    $ps = $ps['price'];
     $vc = mysqli_fetch_assoc(mysqli_query($conn, $marketDataVC));
-    $vc = isset($vc['price']);
+    $vc = $vc['price'];
     $net = mysqli_fetch_assoc(mysqli_query($conn, $marketDataNET));
-    $net = isset($net['price']);
+    $net = $net['price'];
     $hp = mysqli_fetch_assoc(mysqli_query($conn, $marketDataHP));
-    $hp = isset($hp['price']);
+    $hp = $hp['price'];
 
     // GET ITEM QUANTITY
     $queryPullUserCart = "SELECT quantity_ps, quantity_vc, quantity_net, quantity_hp FROM usercart WHERE username = '$username'";
@@ -117,10 +117,10 @@
     $total = $subtotal - ($diskon1 + $diskon2);
 
     //AMBIL DATA
-    $data_jumps = isset($dataPullUserCart['quantity_ps']);
-    $data_jumvc = isset($dataPullUserCart['quantity_vc']);
-    $data_jumnet = isset($dataPullUserCart['quantity_net']);
-    $data_jumhp = isset($dataPullUserCart['quantity_hp']);  
+    $data_jumps = isset($dataPullUserCart['quantity_ps']) ? $dataPullUserCart['quantity_ps'] : 0;
+    $data_jumvc = isset($dataPullUserCart['quantity_vc']) ? $dataPullUserCart['quantity_vc'] : 0;
+    $data_jumnet = isset($dataPullUserCart['quantity_net']) ? $dataPullUserCart['quantity_net'] : 0;
+    $data_jumhp = isset($dataPullUserCart['quantity_hp']) ? $dataPullUserCart['quantity_hp'] : 0;  
     $data_hargaps = $ps1;
     $data_hargavc = $vc1;
     $data_harganet = $net1;
