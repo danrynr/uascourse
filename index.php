@@ -94,7 +94,7 @@
                     <a class="course-name">Hardware + Peripheral</a>&nbsp;<span class="pertemuan"><?php echo " ($data_jumhp) Pertemuan";?></span>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $hp_text";?></span>
                     </section>
                     <section class="total-section">
-                    <a class="total-info">Total</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $subtotal_text";?></span>
+                    <a class="total-info">Subtotal</a>&nbsp;&nbsp;<span class="nominal"><?php echo "Rp $subtotal_text";?></span>
                     </section>
                     <section class="discount-section">
                     <a class="discount-info discount-one">Diskon Pembelian <?php echo $percent_diskon1_text;?></a>&nbsp;&nbsp;<span class="nominal"><?php echo "- Rp $diskon1_text";?></span>
