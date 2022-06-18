@@ -126,7 +126,6 @@
 
                 $dataHistoryAll = "SELECT * FROM userhistory WHERE username = '$username'";
                 $dataHistoryAll = mysqli_query($conn, $dataHistoryAll);
-                $row = mysqli_fetch_assoc($dataHistoryAll);
                 $total_rows = mysqli_num_rows($dataHistoryAll);
                 $maxPage = ceil($total_rows / $rowsPerPage);
                 
