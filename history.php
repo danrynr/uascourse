@@ -111,7 +111,7 @@
                     echo "<div class='item'>Diskon ++&nbsp;&nbsp;&nbsp;</div>";
                     echo "<div></div>";
                     echo "<div class='item'>Rp. &nbsp;&nbsp;</div>";
-                    echo "<div class='item money'>" . number_format($data['sdiskon_tambahan'], 2, '.', ',') . "</div>";
+                    echo "<div class='item money'>" . number_format($data['diskon_tambahan'], 2, '.', ',') . "</div>";
                     echo "<div class='item'>Total&nbsp;&nbsp;&nbsp;</div>";
                     echo "<div></div>";
                     echo "<div class='item'>Rp.&nbsp;&nbsp;</div>";
