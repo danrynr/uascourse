@@ -1,0 +1,39 @@
+CREATE TABLE usercre (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(45) NOT NULL,
+pass_hash VARCHAR(255) NOT NULL,
+name VARCHAR(100) NOT NULL,
+birthdate DATE NOT NULL,
+gender VARCHAR(1) NOT NULL,
+education VARCHAR(11) NOT NULL,
+address VARCHAR(100) NOT NULL,
+hobby VARCHAR(100) NOT NULL); 
+
+CREATE TABLE usercart (
+username VARCHAR(45) PRIMARY KEY NOT NULL,
+quantity_ps INT NOT NULL,
+quantity_vc INT NOT NULL,
+quantity_net INT NOT NULL,
+quantity_hp INT NOT NULL);
+
+CREATE TABLE userhistory (
+order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(45) NOT NULL,
+price_ps INT NOT NULL,
+quantity_ps INT NOT NULL,
+price_vc INT NOT NULL,
+quantity_vc INT NOT NULL,
+price_net INT NOT NULL,
+quantity_net INT NOT NULL,
+price_hp INT NOT NULL,
+quantity_hp INT NOT NULL,
+diskon INT NOT NULL,
+diskon_tambahan INT NOT NULL,
+subtotal INT NOT NULL,
+total INT NOT NULL,
+waktu_beli TIMESTAMP NOT NULL);
+
+CREATE TABLE course (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(45) NOT NULL,
+price INT NOT NULL);
